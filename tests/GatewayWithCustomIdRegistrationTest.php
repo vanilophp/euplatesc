@@ -11,11 +11,16 @@
 
 namespace Konekt\Euplatesc\Tests;
 
-use Konekt\Euplatesc\EuplatescPaymentGateway;
 use Vanilo\Payment\PaymentGateways;
 
 class GatewayWithCustomIdRegistrationTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        PaymentGateways::reset();
+        parent::setUp();
+    }
+
     /** @test */
     public function the_gateway_id_can_be_changed_from_within_the_configuration()
     {
@@ -28,11 +33,5 @@ class GatewayWithCustomIdRegistrationTest extends TestCase
         parent::resolveApplicationConfiguration($app);
 
         config(['konekt.euplatesc.gateway.id' => 'yesipay']);
-    }
-
-    protected function setUp(): void
-    {
-        PaymentGateways::reset();
-        parent::setUp();
     }
 }

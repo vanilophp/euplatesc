@@ -11,11 +11,16 @@
 
 namespace Konekt\Euplatesc\Tests;
 
-use Konekt\Euplatesc\EuplatescPaymentGateway;
 use Vanilo\Payment\PaymentGateways;
 
 class GatewayNoRegistrationTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        PaymentGateways::reset();
+        parent::setUp();
+    }
+
     /** @test */
     public function the_gateway_registration_can_be_disabled()
     {
@@ -27,11 +32,5 @@ class GatewayNoRegistrationTest extends TestCase
         parent::resolveApplicationConfiguration($app);
 
         config(['konekt.euplatesc.gateway.register' => false]);
-    }
-
-    protected function setUp(): void
-    {
-        PaymentGateways::reset();
-        parent::setUp();
     }
 }

@@ -21,7 +21,7 @@ final class Hash
         $str = null;
 
         foreach ($data as $d) {
-            if ($d === null || strlen($d) == 0) {
+            if (null === $d || 0 == strlen($d)) {
                 $str .= '-';
             } // null values are replaced with dashes (-)
             else {
