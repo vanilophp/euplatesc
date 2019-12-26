@@ -1,0 +1,42 @@
+{
+    "name": "konekt/vanilo-euplatesc",
+    "description": "Euplatesc Payment Gateway Support for Vanilo (Laravel)",
+    "type": "library",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Attila Fulop",
+            "homepage": "https://github.com/fulopattila122"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/artkonekt/vanilo-euplatesc"
+    },
+    "require": {
+        "php": "^7.2",
+        "konekt/concord": "~1.5@dev",
+        "vanilo/payment": "~1.2@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Konekt\\Euplatesc\\": "src"
+        }
+    },
+    "require-dev": {
+        "ext-sqlite3": "*",
+        "monolog/monolog": "^1.22",
+        "orchestra/testbench": "~3.5|~4.0",
+        "phpunit/phpunit" : "6.2 - 7.5|~8.0",
+        "mockery/mockery": "^1.1"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Konekt\\Euplatesc\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
