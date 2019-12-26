@@ -12,7 +12,20 @@
 namespace Konekt\Euplatesc\Providers;
 
 use Konekt\Concord\BaseModuleServiceProvider;
+use Konekt\Euplatesc\EuplatescPaymentGateway;
+use Vanilo\Payment\PaymentGateways;
 
 class ModuleServiceProvider extends BaseModuleServiceProvider
 {
+    public function boot()
+    {
+        parent::boot();
+
+        if ($this->config('gateway.register', true)) {
+            PaymentGateways::register(
+                $this->config('gateway.id', EuplatescPaymentGateway::DEFAULT_ID),
+                EuplatescPaymentGateway::class
+            );
+        }
+    }
 }
