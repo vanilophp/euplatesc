@@ -72,3 +72,7 @@ use Vanilo\Payment\PaymentGateways;
 
 PaymentGateways::register('gateway-id', EuplatescPaymentGateway::class);
 ```
+
+---
+
+**Next**: [Workflow &raquo;](workflow.md)
