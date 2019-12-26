@@ -23,7 +23,7 @@ class RequestFactory
     public function buildFromPayable(Payable $payable, string $description = null): EuplatescPaymentRequest
     {
         $result          = new EuplatescPaymentRequest($this->merchantId, $this->encryptionKey);
-        $billingAddress  = EuplatescAddress::fromVaniloAddress($payable->getBillingAddress());
+        $billingAddress  = EuplatescAddress::fromVaniloAddress($payable->getBillPayer()->getBillingAddress());
         $shippingAddress = $billingAddress;
 
         if ($payable->needsShipping()) {

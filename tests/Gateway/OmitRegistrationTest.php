@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the GatewayWithCustomIdRegistrationTest class.
+ * Contains the NoGatewayRegistrationTest class.
  *
  * @copyright   Copyright (c) 2019 Attila Fulop
  * @author      Attila Fulop
@@ -9,11 +9,12 @@
  *
  */
 
-namespace Konekt\Euplatesc\Tests;
+namespace Konekt\Euplatesc\Tests\Gateway;
 
+use Konekt\Euplatesc\Tests\TestCase;
 use Vanilo\Payment\PaymentGateways;
 
-class GatewayWithCustomIdRegistrationTest extends TestCase
+class OmitRegistrationTest extends TestCase
 {
     protected function setUp(): void
     {
@@ -22,16 +23,15 @@ class GatewayWithCustomIdRegistrationTest extends TestCase
     }
 
     /** @test */
-    public function the_gateway_id_can_be_changed_from_within_the_configuration()
+    public function the_gateway_registration_can_be_disabled()
     {
-        $this->assertCount(1, PaymentGateways::ids());
-        $this->assertContains('yesipay', PaymentGateways::ids());
+        $this->assertCount(0, PaymentGateways::ids());
     }
 
     protected function resolveApplicationConfiguration($app)
     {
         parent::resolveApplicationConfiguration($app);
 
-        config(['konekt.euplatesc.gateway.id' => 'yesipay']);
+        config(['konekt.euplatesc.gateway.register' => false]);
     }
 }

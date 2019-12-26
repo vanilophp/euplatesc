@@ -9,17 +9,28 @@
  *
  */
 
-namespace Konekt\Euplatesc\Tests;
+namespace Konekt\Euplatesc\Tests\Gateway;
 
 use Konekt\Euplatesc\EuplatescPaymentGateway;
+use Konekt\Euplatesc\Tests\TestCase;
+use Vanilo\Payment\Contracts\PaymentGateway;
 use Vanilo\Payment\PaymentGateways;
 
-class GatewayRegistrationTest extends TestCase
+class RegistrationTest extends TestCase
 {
     /** @test */
     public function the_gateway_is_registered_out_of_the_box_with_defaults()
     {
         $this->assertCount(1, PaymentGateways::ids());
         $this->assertContains(EuplatescPaymentGateway::DEFAULT_ID, PaymentGateways::ids());
+    }
+
+    /** @test */
+    public function the_gateway_can_be_instantiated()
+    {
+        $euplatescGateway = PaymentGateways::make('euplatesc');
+
+        $this->assertInstanceOf(PaymentGateway::class, $euplatescGateway);
+        $this->assertInstanceOf(EuplatescPaymentGateway::class, $euplatescGateway);
     }
 }

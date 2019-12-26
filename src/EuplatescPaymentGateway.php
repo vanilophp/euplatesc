@@ -11,12 +11,16 @@
 
 namespace Konekt\Euplatesc;
 
+use Konekt\Euplatesc\Concerns\InteractsWithEuplatesc;
+use Konekt\Euplatesc\Factories\RequestFactory;
 use Vanilo\Contracts\Payable;
 use Vanilo\Payment\Contracts\PaymentGateway;
 use Vanilo\Payment\Contracts\PaymentRequest;
 
 class EuplatescPaymentGateway implements PaymentGateway
 {
+    use InteractsWithEuplatesc;
+
     public const DEFAULT_ID = 'euplatesc';
 
     public static function getName(): string
@@ -26,7 +30,8 @@ class EuplatescPaymentGateway implements PaymentGateway
 
     public function createPaymentRequest(Payable $payable): PaymentRequest
     {
-        // TODO: Implement createPaymentRequest() method.
+        return (new RequestFactory($this->merchantId, $this->encryptionKey))
+            ->buildFromPayable($payable);
     }
 
     public function isOffline(): bool

@@ -40,27 +40,6 @@ return [
 ]; 
 ```
 
-### Use a Custom Gateway ID
-
-The gateway gets registered with the default id (`euplatesc`) but you can change this id from within
-the module configuration:
-
-```php
-//config/concord.php
-return [
-    'modules' => [
-        //...
-        Konekt\Euplatesc\Providers\ModuleServiceProvider::class => [
-            'gateway' => [
-                'register' => true,
-                'id' => 'my-fancier-than-yours-gateway-id'
-            ]
-        ]
-        //...
-    ]
-]; 
-```
-
 ### Manual Registration
 
 If you disable registration and want to register the gateway manually you can do it by using the

@@ -11,6 +11,7 @@
 
 namespace Konekt\Euplatesc\Messages;
 
+use Illuminate\Support\Facades\View;
 use Konekt\Euplatesc\Dto\EuplatescAddress;
 use Vanilo\Payment\Contracts\PaymentRequest;
 
@@ -25,9 +26,25 @@ class EuplatescPaymentRequest extends BaseMessage implements PaymentRequest
     /** @var  EuplatescAddress   The shipping address */
     protected $shippingAddress;
 
-    public function getHtmlSnippet(array $options): ?string
+    /**
+     * Returns the HTML form that can be rendered on frontend to submit payment request to Euplatesc
+     *
+     * @param array{autoRedirect:bool, buttonText:string} $options
+     *
+     * @return string|null
+     */
+    public function getHtmlSnippet(array $options = []): ?string
     {
-        // TODO: Implement getHtmlSnippet() method.
+        $buttonText = $options['buttonText'] ?? __('Pay safely');
+
+        return View::make(
+            'euplatesc::_request',
+            [
+                'paymentRequest' => $this,
+                'buttonText'     => $buttonText,
+                'autoRedirect'   => $options['autoRedirect'] ?? false
+            ]
+        )->render();
     }
 
     public function getOrderDescription(): string

@@ -27,5 +27,12 @@ class ModuleServiceProvider extends BaseModuleServiceProvider
                 EuplatescPaymentGateway::class
             );
         }
+
+        $this->app->bind(EuplatescPaymentGateway::class, function ($app) {
+            return new EuplatescPaymentGateway(
+                $this->config('merchant_id'),
+                $this->config('encryption_key')
+            );
+        });
     }
 }
