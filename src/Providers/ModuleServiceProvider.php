@@ -13,6 +13,7 @@ namespace Konekt\Euplatesc\Providers;
 
 use Konekt\Concord\BaseModuleServiceProvider;
 use Konekt\Euplatesc\EuplatescPaymentGateway;
+use RuntimeException;
 use Vanilo\Payment\PaymentGateways;
 
 class ModuleServiceProvider extends BaseModuleServiceProvider
@@ -29,6 +30,15 @@ class ModuleServiceProvider extends BaseModuleServiceProvider
         }
 
         $this->app->bind(EuplatescPaymentGateway::class, function ($app) {
+            $mid = $this->config('merchant_id');
+            $key = $this->config('encryption_key');
+
+            if (is_null($mid) || is_null($key)) {
+                throw new RuntimeException(
+                    'Can not create Euplatesc gateway, either merchant_id or encryption_key is not configured.'
+                );
+            }
+
             return new EuplatescPaymentGateway(
                 $this->config('merchant_id'),
                 $this->config('encryption_key')
