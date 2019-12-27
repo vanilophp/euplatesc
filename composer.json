@@ -17,7 +17,7 @@
     "require": {
         "php": "^7.2",
         "konekt/concord": "~1.5@dev",
-        "vanilo/payment": "~1.2@dev"
+        "vanilo/payment": "~2.0@dev"
     },
     "autoload": {
         "psr-4": {
