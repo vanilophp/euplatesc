@@ -13,6 +13,7 @@ namespace Konekt\Euplatesc;
 
 use Konekt\Euplatesc\Concerns\InteractsWithEuplatesc;
 use Konekt\Euplatesc\Factories\RequestFactory;
+use Vanilo\Contracts\Address;
 use Vanilo\Contracts\Payable;
 use Vanilo\Payment\Contracts\PaymentGateway;
 use Vanilo\Payment\Contracts\PaymentRequest;
@@ -28,10 +29,14 @@ class EuplatescPaymentGateway implements PaymentGateway
         return 'Euplatesc';
     }
 
-    public function createPaymentRequest(Payable $payable): PaymentRequest
+    public function createPaymentRequest(
+        Payable $payable,
+        Address $shippingAddress = null,
+        array $options = []
+    ): PaymentRequest
     {
         return (new RequestFactory($this->merchantId, $this->encryptionKey))
-            ->buildFromPayable($payable);
+            ->buildFromPayable($payable, $shippingAddress, $options);
     }
 
     public function isOffline(): bool

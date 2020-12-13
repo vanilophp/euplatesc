@@ -12,8 +12,10 @@
     <input name="fname" type="hidden" value="{{ $billingAddress->getFirstName() }}"/>
     <input name="lname" type="hidden" value="{{ $billingAddress->getLastName() }}"/>
     <input name="country" type="hidden" value="{{ $billingAddress->getCountry() }}"/>
+    <input name="state" type="hidden" value="{{ $billingAddress->getState() }}"/>
     <input name="company" type="hidden" value="{{ $billingAddress->getCompany() }}"/>
     <input name="city" type="hidden" value="{{ $billingAddress->getCity() }}"/>
+    <input name="zip" type="hidden" value="{{ $billingAddress->getZip() }}"/>
     <input name="add" type="hidden" value="{{ $billingAddress->getAddress() }}"/>
     <input name="email" type="hidden" value="{{ $billingAddress->getEmail() }}"/>
     <input name="phone" type="hidden" value="{{ $billingAddress->getPhone() }}"/>
@@ -24,8 +26,10 @@
     <input name="sfname" type="hidden" value="{{ $shippingAddress->getFirstName() }}"/>
     <input name="slname" type="hidden" value="{{ $shippingAddress->getLastName() }}"/>
     <input name="scountry" type="hidden" value="{{ $shippingAddress->getCountry() }}"/>
+    <input name="sstate" type="hidden" value="{{ $shippingAddress->getState() }}"/>
     <input name="scompany" type="hidden" value="{{ $shippingAddress->getCompany() }}"/>
     <input name="scity" type="hidden" value="{{ $shippingAddress->getCity() }}"/>
+    <input name="szip" type="hidden" value="{{ $shippingAddress->getZip() }}"/>
     <input name="sadd" type="hidden" value="{{ $shippingAddress->getAddress() }}"/>
     <input name="semail" type="hidden" value="{{ $shippingAddress->getEmail() }}"/>
     <input name="sphone" type="hidden" value="{{ $shippingAddress->getPhone() }}"/>

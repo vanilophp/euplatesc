@@ -47,6 +47,11 @@ class EuplatescPaymentRequest extends BaseMessage implements PaymentRequest
         )->render();
     }
 
+    public function willRedirect(): bool
+    {
+        return true;
+    }
+
     public function getOrderDescription(): string
     {
         return $this->orderDescription;

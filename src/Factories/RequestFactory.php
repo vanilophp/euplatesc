@@ -14,28 +14,27 @@ namespace Konekt\Euplatesc\Factories;
 use Konekt\Euplatesc\Concerns\InteractsWithEuplatesc;
 use Konekt\Euplatesc\Dto\EuplatescAddress;
 use Konekt\Euplatesc\Messages\EuplatescPaymentRequest;
+use Vanilo\Contracts\Address;
 use Vanilo\Contracts\Payable;
 
 class RequestFactory
 {
     use InteractsWithEuplatesc;
 
-    public function buildFromPayable(Payable $payable, string $description = null): EuplatescPaymentRequest
+    public function buildFromPayable(
+        Payable $payable,
+        Address $shippingAddress = null,
+        array $options = []
+    ): EuplatescPaymentRequest
     {
-        $result          = new EuplatescPaymentRequest($this->merchantId, $this->encryptionKey);
-        $billingAddress  = EuplatescAddress::fromVaniloAddress($payable->getBillPayer()->getBillingAddress());
-        $shippingAddress = $billingAddress;
-
-        if ($payable->needsShipping()) {
-            $shippingAddress = EuplatescAddress::fromVaniloAddress(
-                $payable->getShippable()->getShippingAddress()
-            );
-        }
+        $result = new EuplatescPaymentRequest($this->merchantId, $this->encryptionKey);
+        $billingAddress = EuplatescAddress::fromVaniloBillpayer($payable->getBillPayer());
+        $shippingAddress = $shippingAddress ? EuplatescAddress::fromVaniloAddress($shippingAddress) : $billingAddress;
 
         $result->setAmount($payable->getAmount())
             ->setCurrency($payable->getCurrency())
-            ->setInvoiceId($payable->getId())
-            ->setOrderDescription($description ?? __('Order with number %s', $payable->getId()))
+            ->setInvoiceId($payable->getPayableId())
+            ->setOrderDescription($options['description'] ?? __('Order with number :number', ['number' => $payable->getPayableId()]))
             ->setBillingAddress($billingAddress)
             ->setShippingAddress($shippingAddress);
 

@@ -13,15 +13,24 @@ namespace Konekt\Euplatesc\Concerns;
 
 trait InteractsWithEuplatesc
 {
-    /** @var string Merchant ID assigned by EuPlatesc.ro (length 8-50) */
+    /** @var null|string Merchant ID assigned by EuPlatesc.ro (length 8-50) */
     private $merchantId;
 
-    /** @var string The encryption key (assigned to the account) */
+    /** @var null|string The encryption key (assigned to the account) */
     private $encryptionKey;
 
-    public function __construct(string $merchantId, string $encryptionKey)
+    public function __construct(?string $merchantId, ?string $encryptionKey)
     {
         $this->merchantId    = $merchantId;
         $this->encryptionKey = $encryptionKey;
+    }
+
+    public function isProperlyConfigured(): bool
+    {
+        if (null === $this->merchantId || null === $this->encryptionKey) {
+            return false;
+        }
+
+        return true;
     }
 }

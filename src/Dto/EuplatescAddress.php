@@ -12,6 +12,7 @@
 namespace Konekt\Euplatesc\Dto;
 
 use Vanilo\Contracts\Address;
+use Vanilo\Contracts\Billpayer;
 
 class EuplatescAddress
 {
@@ -66,13 +67,26 @@ class EuplatescAddress
                ->setCity($address->getCity())
                ->setZip($address->getPostalCode() ?? '')
                ->setState($address->getProvinceCode() ?? '')
-               ->setCountry($address->getCountryCode())
-               ->setEmail($address->getEmail() ?? '')
-               ->setPhone($address->getPhone() ?? '');
+               ->setCountry($address->getCountryCode());
 
-        $result->setCompany(
-            $address->isOrganization() ? ($address->getOrganizationName() ?? '') : ''
-        );
+        return $result;
+    }
+
+    public static function fromVaniloBillpayer(Billpayer $billpayer): EuplatescAddress
+    {
+        $result = new self();
+        $address = $billpayer->getBillingAddress();
+
+        $result->setFirstName($billpayer->getFirstName())
+               ->setLastName($billpayer->getLastName())
+               ->setAddress($address->getAddress())
+               ->setCity($address->getCity())
+               ->setZip($address->getPostalCode() ?? '')
+               ->setState($address->getProvinceCode() ?? '')
+               ->setCountry($address->getCountryCode())
+               ->setEmail($billpayer->getEmail() ?? '')
+               ->setPhone($billpayer->getPhone() ?? '')
+               ->setCompany($billpayer->getCompanyName() ?? '');
 
         return $result;
     }
