@@ -27,7 +27,7 @@ class RegistrationWithCustomIdTest extends TestCase
     /** @test */
     public function the_gateway_id_can_be_changed_from_within_the_configuration()
     {
-        $this->assertCount(1, PaymentGateways::ids());
+        $this->assertCount(2, PaymentGateways::ids());
         $this->assertContains('yesipay', PaymentGateways::ids());
     }
 

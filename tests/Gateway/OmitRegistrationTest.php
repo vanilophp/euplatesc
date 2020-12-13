@@ -25,7 +25,7 @@ class OmitRegistrationTest extends TestCase
     /** @test */
     public function the_gateway_registration_can_be_disabled()
     {
-        $this->assertCount(0, PaymentGateways::ids());
+        $this->assertCount(1, PaymentGateways::ids());
     }
 
     protected function resolveApplicationConfiguration($app)
