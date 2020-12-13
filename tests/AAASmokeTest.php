@@ -13,7 +13,7 @@ namespace Konekt\Euplatesc\Tests;
 
 class AAASmokeTest extends TestCase
 {
-    const MIN_PHP_VERSION = '7.2.0';
+    const MIN_PHP_VERSION = '7.3.0';
 
     /**
      * @test

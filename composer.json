@@ -15,9 +15,9 @@
         "issues": "https://github.com/artkonekt/vanilo-euplatesc"
     },
     "require": {
-        "php": "^7.2",
-        "konekt/concord": "~1.5@dev",
-        "vanilo/payment": "~2.0@dev"
+        "php": "^7.3",
+        "konekt/concord": "^1.5",
+        "vanilo/payment": "2.1.x-dev"
     },
     "autoload": {
         "psr-4": {
@@ -27,8 +27,8 @@
     "require-dev": {
         "ext-sqlite3": "*",
         "monolog/monolog": "^1.22",
-        "orchestra/testbench": "~3.5|~4.0",
-        "phpunit/phpunit" : "6.2 - 7.5|~8.0",
+        "orchestra/testbench": "~4.0|~5.0|~6.0",
+        "phpunit/phpunit" : "8 - 9",
         "mockery/mockery": "^1.1"
     },
     "autoload-dev": {
