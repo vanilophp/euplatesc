@@ -17,7 +17,7 @@ use Vanilo\Payment\Contracts\PaymentRequest;
 
 class EuplatescPaymentRequest extends BaseMessage implements PaymentRequest
 {
-    /** @var  string    Order description (length (1-50)*/
+    /** @var  string    Order description (length (1-50) */
     protected $orderDescription = '';
 
     /** @var  EuplatescAddress   The billing address */
