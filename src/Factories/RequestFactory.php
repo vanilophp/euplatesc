@@ -25,8 +25,7 @@ class RequestFactory
         Payable $payable,
         Address $shippingAddress = null,
         array $options = []
-    ): EuplatescPaymentRequest
-    {
+    ): EuplatescPaymentRequest {
         $result = new EuplatescPaymentRequest($this->merchantId, $this->encryptionKey);
         $billingAddress = EuplatescAddress::fromVaniloBillpayer($payable->getBillPayer());
         $shippingAddress = $shippingAddress ? EuplatescAddress::fromVaniloAddress($shippingAddress) : $billingAddress;

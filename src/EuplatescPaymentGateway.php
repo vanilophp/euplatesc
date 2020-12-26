@@ -33,8 +33,7 @@ class EuplatescPaymentGateway implements PaymentGateway
         Payable $payable,
         Address $shippingAddress = null,
         array $options = []
-    ): PaymentRequest
-    {
+    ): PaymentRequest {
         return (new RequestFactory($this->merchantId, $this->encryptionKey))
             ->buildFromPayable($payable, $shippingAddress, $options);
     }
