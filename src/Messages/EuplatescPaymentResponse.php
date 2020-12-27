@@ -30,6 +30,16 @@ class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
     /** @var  string    Client bank’s approval code. Can be empty if not provided by gateway. length (0-6) */
     protected $approval;
 
+    public function wasSuccessful(): bool
+    {
+        return 0 === $this->getAction();
+    }
+
+    public function getPayableId(): string
+    {
+        return $this->invoiceId;
+    }
+
     public function getTransactionId(): ?string
     {
         return $this->epId;
@@ -104,10 +114,5 @@ class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
             'timestamp'  => addslashes(trim($this->getTimestamp())),                    // message timestamp
             'nonce'      => addslashes(trim($this->getNonce())),
         ];
-    }
-
-    public function wasSuccessful(): bool
-    {
-        return 0 === $this->getAction();
     }
 }
