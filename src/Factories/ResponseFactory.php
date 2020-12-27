@@ -31,8 +31,8 @@ class ResponseFactory
             ->setInvoiceId($request->get('invoice_id'))
             ->setEpId($request->get('ep_id'))
             ->setAction(intval($request->get('action')))
-            ->setMessage($request->get('message', ''))
-            ->setApproval($request->get('approval', ''))
+            ->setMessage($request->get('message'))
+            ->setApproval((string) $request->get('approval'))
             ->setTimestamp($request->get('timestamp'));
 
         return $result;
