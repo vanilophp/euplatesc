@@ -22,7 +22,7 @@ class ResponseFactory
 {
     use InteractsWithEuplatesc;
 
-    public function buildFromCallbackRequest(Request $request): EuplatescPaymentResponse
+    public function buildFromCallbackRequest(Request $request, array $options = []): EuplatescPaymentResponse
     {
         $result = new EuplatescPaymentResponse($this->merchantId, $this->encryptionKey);
 

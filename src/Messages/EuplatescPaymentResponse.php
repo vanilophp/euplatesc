@@ -14,7 +14,9 @@ declare(strict_types=1);
 
 namespace Konekt\Euplatesc\Messages;
 
-class EuplatescPaymentResponse extends BaseMessage
+use Vanilo\Payment\Contracts\PaymentResponse;
+
+class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
 {
     /** @var  string    Gateway unique id for each transaction. (length 1-50) */
     protected $epId;
@@ -27,6 +29,11 @@ class EuplatescPaymentResponse extends BaseMessage
 
     /** @var  string    Client bank’s approval code. Can be empty if not provided by gateway. length (0-6) */
     protected $approval;
+
+    public function getTransactionId(): ?string
+    {
+        return $this->epId;
+    }
 
     public function getEpId(): string
     {
