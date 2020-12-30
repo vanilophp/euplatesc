@@ -34,7 +34,7 @@ class RequestFactory
         $result->setAmount($payment->getAmount())
             ->setCurrency($payment->getCurrency())
             ->setInvoiceId($payment->getPaymentId())
-            ->setOrderDescription($options['description'] ?? __('Order with number :number', ['number' => $payment->getPayable()->getPayableId()]))
+            ->setOrderDescription($options['description'] ?? __('Order no. :number', ['number' => $payment->getPayable()->getTitle()]))
             ->setBillingAddress($billingAddress)
             ->setShippingAddress($shippingAddress);
 
