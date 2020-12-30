@@ -16,24 +16,25 @@ use Konekt\Euplatesc\Dto\EuplatescAddress;
 use Konekt\Euplatesc\Messages\EuplatescPaymentRequest;
 use Vanilo\Contracts\Address;
 use Vanilo\Contracts\Payable;
+use Vanilo\Payment\Contracts\Payment;
 
 class RequestFactory
 {
     use InteractsWithEuplatesc;
 
-    public function buildFromPayable(
-        Payable $payable,
+    public function buildFromPayment(
+        Payment $payment,
         Address $shippingAddress = null,
         array $options = []
     ): EuplatescPaymentRequest {
         $result = new EuplatescPaymentRequest($this->merchantId, $this->encryptionKey);
-        $billingAddress = EuplatescAddress::fromVaniloBillpayer($payable->getBillPayer());
+        $billingAddress = EuplatescAddress::fromVaniloBillpayer($payment->getPayable()->getBillPayer());
         $shippingAddress = $shippingAddress ? EuplatescAddress::fromVaniloAddress($shippingAddress) : $billingAddress;
 
-        $result->setAmount($payable->getAmount())
-            ->setCurrency($payable->getCurrency())
-            ->setInvoiceId($payable->getPayableId())
-            ->setOrderDescription($options['description'] ?? __('Order with number :number', ['number' => $payable->getPayableId()]))
+        $result->setAmount($payment->getAmount())
+            ->setCurrency($payment->getCurrency())
+            ->setInvoiceId($payment->getPaymentId())
+            ->setOrderDescription($options['description'] ?? __('Order with number :number', ['number' => $payment->getPayable()->getPayableId()]))
             ->setBillingAddress($billingAddress)
             ->setShippingAddress($shippingAddress);
 

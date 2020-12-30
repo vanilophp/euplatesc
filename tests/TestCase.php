@@ -11,8 +11,10 @@
 
 namespace Konekt\Euplatesc\Tests;
 
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Konekt\Concord\ConcordServiceProvider;
 use Konekt\Euplatesc\Providers\ModuleServiceProvider as EuplatescModule;
+use Konekt\Euplatesc\Tests\Dummies\SomeOrder;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Vanilo\Payment\Providers\ModuleServiceProvider as PaymentModule;
 
@@ -59,6 +61,7 @@ abstract class TestCase extends Orchestra
      */
     protected function setUpDatabase($app)
     {
+        $this->loadMigrationsFrom(__DIR__ . '/migrations');
         \Artisan::call('migrate', ['--force' => true]);
     }
 

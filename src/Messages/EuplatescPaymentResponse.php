@@ -35,7 +35,12 @@ class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
         return 0 === $this->getAction();
     }
 
-    public function getPayableId(): string
+    public function getAmountPaid(): ?float
+    {
+        return floatval($this->getAmount());
+    }
+
+    public function getPaymentId(): string
     {
         return $this->invoiceId;
     }

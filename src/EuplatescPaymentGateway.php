@@ -16,7 +16,7 @@ use Konekt\Euplatesc\Concerns\InteractsWithEuplatesc;
 use Konekt\Euplatesc\Factories\RequestFactory;
 use Konekt\Euplatesc\Factories\ResponseFactory;
 use Vanilo\Contracts\Address;
-use Vanilo\Contracts\Payable;
+use Vanilo\Payment\Contracts\Payment;
 use Vanilo\Payment\Contracts\PaymentGateway;
 use Vanilo\Payment\Contracts\PaymentRequest;
 use Vanilo\Payment\Contracts\PaymentResponse;
@@ -33,12 +33,12 @@ class EuplatescPaymentGateway implements PaymentGateway
     }
 
     public function createPaymentRequest(
-        Payable $payable,
+        Payment $payment,
         Address $shippingAddress = null,
         array $options = []
     ): PaymentRequest {
         return (new RequestFactory($this->merchantId, $this->encryptionKey))
-            ->buildFromPayable($payable, $shippingAddress, $options);
+            ->buildFromPayment($payment, $shippingAddress, $options);
     }
 
     public function processPaymentResponse(Request $request, array $options = []): PaymentResponse

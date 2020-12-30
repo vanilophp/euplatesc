@@ -14,12 +14,14 @@ declare(strict_types=1);
 
 namespace Konekt\Euplatesc\Tests\Factory;
 
+use Konekt\Euplatesc\EuplatescPaymentGateway;
 use Konekt\Euplatesc\Factories\RequestFactory;
 use Konekt\Euplatesc\Messages\EuplatescPaymentRequest;
+use Konekt\Euplatesc\Tests\Dummies\Order;
 use Konekt\Euplatesc\Tests\Dummies\SomeOrder;
 use Konekt\Euplatesc\Tests\TestCase;
-use Vanilo\Contracts\Billpayer;
-use Vanilo\Contracts\Payable;
+use Vanilo\Payment\Factories\PaymentFactory;
+use Vanilo\Payment\Models\PaymentMethod;
 
 class RequestFactoryTest extends TestCase
 {
@@ -27,11 +29,18 @@ class RequestFactoryTest extends TestCase
     public function it_creates_a_response_object()
     {
         $factory = new RequestFactory('mid', 'some-key');
-        $order = new SomeOrder();
+        $method = PaymentMethod::create([
+            'gateway' => EuplatescPaymentGateway::getName(),
+            'name' => 'EuPlatesc',
+        ]);
+
+        $order = Order::create(['currency' => 'USD', 'amount' => 13.99]);
+
+        $payment = PaymentFactory::createFromPayable($order, $method);
 
         $this->assertInstanceOf(
             EuplatescPaymentRequest::class,
-            $factory->buildFromPayable($order)
+            $factory->buildFromPayment($payment)
         );
     }
 }
