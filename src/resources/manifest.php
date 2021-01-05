@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'name'    => 'Euplatesc Payments',
-    'version' => '1.0-dev'
+    'name'    => 'Euplatesc Payments for Vanilo',
+    'version' => '1.0.0'
 ];
