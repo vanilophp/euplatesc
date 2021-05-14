@@ -19,10 +19,15 @@ use Vanilo\Contracts\Address;
 class SomeShippingAddress implements Address
 {
     private string $name;
+
     private string $country;
+
     private string $province;
+
     private string $zip;
+
     private string $city;
+
     private string $address;
 
     public function __construct(string $name, string $country, string $province, string $zip, string $city, string $address)

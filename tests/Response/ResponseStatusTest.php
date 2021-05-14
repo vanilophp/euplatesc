@@ -112,7 +112,7 @@ class ResponseStatusTest extends TestCase
         ];
         $nonMappedNativeStatuses = array_filter(
             EuplatescStatus::values(),
-            fn($v, $k) => !in_array($v, $mappedNativeStatues),
+            fn ($v, $k) => !in_array($v, $mappedNativeStatues),
             ARRAY_FILTER_USE_BOTH
         );
 
