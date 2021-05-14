@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the base TestCase class.
  *
@@ -11,11 +13,9 @@
 
 namespace Vanilo\Euplatesc\Tests;
 
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Konekt\Concord\ConcordServiceProvider;
-use Vanilo\Euplatesc\Providers\ModuleServiceProvider as EuplatescModule;
-use Vanilo\Euplatesc\Tests\Dummies\SomeOrder;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Vanilo\Euplatesc\Providers\ModuleServiceProvider as EuplatescModule;
 use Vanilo\Payment\Providers\ModuleServiceProvider as PaymentModule;
 
 abstract class TestCase extends Orchestra
@@ -48,9 +48,9 @@ abstract class TestCase extends Orchestra
     {
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
     }
 

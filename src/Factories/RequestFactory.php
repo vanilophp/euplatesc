@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the RequestFactory class.
  *
@@ -11,11 +13,10 @@
 
 namespace Vanilo\Euplatesc\Factories;
 
+use Vanilo\Contracts\Address;
 use Vanilo\Euplatesc\Concerns\InteractsWithEuplatesc;
 use Vanilo\Euplatesc\Dto\EuplatescAddress;
 use Vanilo\Euplatesc\Messages\EuplatescPaymentRequest;
-use Vanilo\Contracts\Address;
-use Vanilo\Contracts\Payable;
 use Vanilo\Payment\Contracts\Payment;
 
 class RequestFactory

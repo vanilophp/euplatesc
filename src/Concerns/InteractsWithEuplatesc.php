@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the InteractsWithEuplatesc trait.
  *
@@ -21,7 +23,7 @@ trait InteractsWithEuplatesc
 
     public function __construct(?string $merchantId, ?string $encryptionKey)
     {
-        $this->merchantId    = $merchantId;
+        $this->merchantId = $merchantId;
         $this->encryptionKey = $encryptionKey;
     }
 

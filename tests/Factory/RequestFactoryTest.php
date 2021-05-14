@@ -18,7 +18,6 @@ use Vanilo\Euplatesc\EuplatescPaymentGateway;
 use Vanilo\Euplatesc\Factories\RequestFactory;
 use Vanilo\Euplatesc\Messages\EuplatescPaymentRequest;
 use Vanilo\Euplatesc\Tests\Dummies\Order;
-use Vanilo\Euplatesc\Tests\Dummies\SomeOrder;
 use Vanilo\Euplatesc\Tests\TestCase;
 use Vanilo\Payment\Factories\PaymentFactory;
 use Vanilo\Payment\Models\PaymentMethod;

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the EuplatescPaymentGateway class.
  *
@@ -12,10 +14,10 @@
 namespace Vanilo\Euplatesc;
 
 use Illuminate\Http\Request;
+use Vanilo\Contracts\Address;
 use Vanilo\Euplatesc\Concerns\InteractsWithEuplatesc;
 use Vanilo\Euplatesc\Factories\RequestFactory;
 use Vanilo\Euplatesc\Factories\ResponseFactory;
-use Vanilo\Contracts\Address;
 use Vanilo\Payment\Contracts\Payment;
 use Vanilo\Payment\Contracts\PaymentGateway;
 use Vanilo\Payment\Contracts\PaymentRequest;

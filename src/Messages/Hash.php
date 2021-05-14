@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the Hash class.
  *
@@ -37,13 +39,13 @@ final class Hash
     private static function hmacsha1($key, $data)
     {
         $blocksize = 64;
-        $hashfunc  = 'md5';
+        $hashfunc = 'md5';
 
         if (strlen($key) > $blocksize) {
             $key = pack('H*', $hashfunc($key));
         }
 
-        $key  = str_pad($key, $blocksize, chr(0x00));
+        $key = str_pad($key, $blocksize, chr(0x00));
         $ipad = str_repeat(chr(0x36), $blocksize);
         $opad = str_repeat(chr(0x5c), $blocksize);
 

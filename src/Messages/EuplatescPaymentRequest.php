@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the EuplatescPaymentRequest class.
  *
@@ -41,8 +43,8 @@ class EuplatescPaymentRequest extends BaseMessage implements PaymentRequest
             'euplatesc::_request',
             [
                 'paymentRequest' => $this,
-                'buttonText'     => $buttonText,
-                'autoRedirect'   => $options['autoRedirect'] ?? false
+                'buttonText' => $buttonText,
+                'autoRedirect' => $options['autoRedirect'] ?? false
             ]
         )->render();
     }
@@ -91,13 +93,13 @@ class EuplatescPaymentRequest extends BaseMessage implements PaymentRequest
     protected function getFpHashData(): array
     {
         return [
-            'amount'     => $this->getAmountNumericFmt(),
-            'curr'       => $this->getCurrency(),
+            'amount' => $this->getAmountNumericFmt(),
+            'curr' => $this->getCurrency(),
             'invoice_id' => $this->getInvoiceId(),
             'order_desc' => $this->getOrderDescription(),
-            'merch_id'   => $this->getMerchantId(),
-            'timestamp'  => $this->getTimestamp(),
-            'nonce'      => $this->getNonce(),
+            'merch_id' => $this->getMerchantId(),
+            'timestamp' => $this->getTimestamp(),
+            'nonce' => $this->getNonce(),
         ];
     }
 }

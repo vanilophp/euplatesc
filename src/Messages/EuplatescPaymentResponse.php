@@ -110,16 +110,16 @@ class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
     public function getFpHashData(): array
     {
         return [
-            'amount'     => addslashes(trim($this->getAmount()->getAmount())),              // original amount
-            'curr'       => addslashes(trim($this->getAmount()->getCurrency()->getCode())), // original currency
+            'amount' => addslashes(trim($this->getAmount()->getAmount())),              // original amount
+            'curr' => addslashes(trim($this->getAmount()->getCurrency()->getCode())), // original currency
             'invoice_id' => addslashes(trim($this->getInvoiceId())),                        // original invoice id
-            'ep_id'      => addslashes(trim($this->getEpId())),                             // Euplatesc.ro unique id
-            'merch_id'   => addslashes(trim($this->getMerchantId())),                       // your merchant id
-            'action'     => addslashes(trim((string) $this->getAction())),                  // if action ==0 transaction ok
-            'message'    => addslashes(trim($this->getMessage())),                          // transaction response message
-            'approval'   => addslashes(trim($this->getApproval())),                         // if action!=0 empty
-            'timestamp'  => addslashes(trim($this->getTimestamp())),                        // message timestamp
-            'nonce'      => addslashes(trim($this->getNonce())),
+            'ep_id' => addslashes(trim($this->getEpId())),                             // Euplatesc.ro unique id
+            'merch_id' => addslashes(trim($this->getMerchantId())),                       // your merchant id
+            'action' => addslashes(trim((string) $this->getAction())),                  // if action ==0 transaction ok
+            'message' => addslashes(trim($this->getMessage())),                          // transaction response message
+            'approval' => addslashes(trim($this->getApproval())),                         // if action!=0 empty
+            'timestamp' => addslashes(trim($this->getTimestamp())),                        // message timestamp
+            'nonce' => addslashes(trim($this->getNonce())),
         ];
     }
 

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Contains the EuplatescAddress class.
  *
@@ -58,7 +60,7 @@ class EuplatescAddress
             [$firstName, $lastName] = $names;
         } else {
             $firstName = $address->getName();
-            $lastName  = '';
+            $lastName = '';
         }
 
         $result->setFirstName($firstName)
