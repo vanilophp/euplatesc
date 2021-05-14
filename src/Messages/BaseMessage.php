@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Vanilo\Euplatesc\Messages;
 
+use Carbon\Carbon;
 use Vanilo\Euplatesc\Concerns\InteractsWithEuplatesc;
 
 abstract class BaseMessage
@@ -120,7 +121,7 @@ abstract class BaseMessage
     public function getTimestamp(): string
     {
         if (!$this->timestamp) {
-            $this->timestamp = gmdate("YmdHis");
+            $this->timestamp = Carbon::now('UTC')->format('YmdHis');
         }
 
         return $this->timestamp;

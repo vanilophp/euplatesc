@@ -15,8 +15,10 @@ declare(strict_types=1);
 namespace Vanilo\Euplatesc\Messages;
 
 use Konekt\Enum\Enum;
+use Vanilo\Euplatesc\Models\EuplatescStatus;
 use Vanilo\Payment\Contracts\PaymentResponse;
 use Vanilo\Payment\Contracts\PaymentStatus;
+use Vanilo\Payment\Models\PaymentStatusProxy;
 
 class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
 {
@@ -31,6 +33,8 @@ class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
 
     /** @var  string    Client bank’s approval code. Can be empty if not provided by gateway. length (0-6) */
     protected $approval;
+
+    protected ?PaymentStatus $status = null;
 
     public function wasSuccessful(): bool
     {
@@ -82,6 +86,7 @@ class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
     public function setAction(int $action): self
     {
         $this->action = $action;
+        $this->status = null;
 
         return $this;
     }
@@ -110,26 +115,45 @@ class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
     public function getFpHashData(): array
     {
         return [
-            'amount' => addslashes(trim($this->getAmount()->getAmount())),              // original amount
+            'amount' => addslashes(trim($this->getAmount()->getAmount())),            // original amount
             'curr' => addslashes(trim($this->getAmount()->getCurrency()->getCode())), // original currency
-            'invoice_id' => addslashes(trim($this->getInvoiceId())),                        // original invoice id
-            'ep_id' => addslashes(trim($this->getEpId())),                             // Euplatesc.ro unique id
-            'merch_id' => addslashes(trim($this->getMerchantId())),                       // your merchant id
-            'action' => addslashes(trim((string) $this->getAction())),                  // if action ==0 transaction ok
-            'message' => addslashes(trim($this->getMessage())),                          // transaction response message
-            'approval' => addslashes(trim($this->getApproval())),                         // if action!=0 empty
-            'timestamp' => addslashes(trim($this->getTimestamp())),                        // message timestamp
+            'invoice_id' => addslashes(trim($this->getInvoiceId())),                  // original invoice id
+            'ep_id' => addslashes(trim($this->getEpId())),                            // Euplatesc.ro unique id
+            'merch_id' => addslashes(trim($this->getMerchantId())),                   // your merchant id
+            'action' => addslashes(trim((string) $this->getAction())),                // if action ==0 transaction ok
+            'message' => addslashes(trim($this->getMessage())),                       // transaction response message
+            'approval' => addslashes(trim($this->getApproval())),                     // if action!=0 empty
+            'timestamp' => addslashes(trim($this->getTimestamp())),                   // message timestamp
             'nonce' => addslashes(trim($this->getNonce())),
         ];
     }
 
     public function getStatus(): PaymentStatus
     {
-        // TODO: Implement getStatus() method.
+        if (null === $this->status) {
+            switch ($this->getNativeStatus()->value()) {
+                case EuplatescStatus::PENDING_OK:
+                    $this->status = PaymentStatusProxy::AUTHORIZED();
+                    break;
+                case EuplatescStatus::TRANSACTION_EXPIRED:
+                    $this->status = PaymentStatusProxy::TIMEOUT();
+                    break;
+                case EuplatescStatus::TRANSACTION_ALREADY_CAPTURED:
+                    $this->status = PaymentStatusProxy::PAID();
+                    break;
+                case EuplatescStatus::NOT_PERMITTED_REVERSAL_PENDING:
+                    $this->status = PaymentStatusProxy::ON_HOLD();
+                    break;
+                default:
+                    $this->status = PaymentStatusProxy::DECLINED();
+            }
+        }
+
+        return $this->status;
     }
 
     public function getNativeStatus(): Enum
     {
-        // TODO: Implement getNativeStatus() method.
+        return new EuplatescStatus($this->action);
     }
 }
