@@ -1,6 +1,6 @@
 # Euplatesc Payment Gateway Support for Vanilo
 
-[![Tests](https://img.shields.io/github/workflow/status/vanilo/euplatesc/tests/master?style=flat-square)](https://github.com/vanilo/euplatesc/actions?query=workflow%3Atests)
+[![Tests](https://img.shields.io/github/workflow/status/vanilophp/euplatesc/tests/master?style=flat-square)](https://github.com/vanilophp/euplatesc/actions?query=workflow%3Atests)
 [![Packagist Stable Version](https://img.shields.io/packagist/v/vanilo/euplatesc.svg?style=flat-square&label=stable)](https://packagist.org/packages/vanilo/euplatesc)
 [![StyleCI](https://styleci.io/repos/230225749/shield?branch=master)](https://styleci.io/repos/230225749)
 [![Packagist downloads](https://img.shields.io/packagist/dt/vanilo/euplatesc.svg?style=flat-square)](https://packagist.org/packages/vanilo/euplatesc)
