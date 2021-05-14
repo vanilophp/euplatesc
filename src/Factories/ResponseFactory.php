@@ -12,11 +12,11 @@ declare(strict_types=1);
  *
  */
 
-namespace Konekt\Euplatesc\Factories;
+namespace Vanilo\Euplatesc\Factories;
 
 use Illuminate\Http\Request;
-use Konekt\Euplatesc\Concerns\InteractsWithEuplatesc;
-use Konekt\Euplatesc\Messages\EuplatescPaymentResponse;
+use Vanilo\Euplatesc\Concerns\InteractsWithEuplatesc;
+use Vanilo\Euplatesc\Messages\EuplatescPaymentResponse;
 
 class ResponseFactory
 {

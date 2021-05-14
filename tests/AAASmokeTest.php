@@ -9,11 +9,11 @@
  *
  */
 
-namespace Konekt\Euplatesc\Tests;
+namespace Vanilo\Euplatesc\Tests;
 
 class AAASmokeTest extends TestCase
 {
-    public const MIN_PHP_VERSION = '7.3.0';
+    public const MIN_PHP_VERSION = '7.4.0';
 
     /**
      * @test

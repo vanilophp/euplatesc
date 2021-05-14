@@ -9,7 +9,7 @@
  *
  */
 
-namespace Konekt\Euplatesc\Dto;
+namespace Vanilo\Euplatesc\Dto;
 
 use Vanilo\Contracts\Address;
 use Vanilo\Contracts\Billpayer;

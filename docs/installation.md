@@ -2,7 +2,7 @@
 
 1. Add to your application via composer:
     ```bash
-    composer require konekt/vanilo-euplatesc 
+    composer require vanilo/euplatesc 
     ```
 2. Add the module to `config/concord.php`:
     ```php
@@ -10,7 +10,7 @@
     return [
         'modules' => [
              //...
-             Konekt\Euplatesc\Providers\ModuleServiceProvider::class
+             Vanilo\Euplatesc\Providers\ModuleServiceProvider::class
              //...
         ]
     ]; 
@@ -30,7 +30,7 @@ configuration:
 return [
     'modules' => [
         //...
-        Konekt\Euplatesc\Providers\ModuleServiceProvider::class => [
+        Vanilo\Euplatesc\Providers\ModuleServiceProvider::class => [
             'gateway' => [
                 'register' => false
             ]
@@ -46,7 +46,7 @@ If you disable registration and want to register the gateway manually you can do
 Vanilo Payment module's payment gateway registry:
 
 ```php
-use Konekt\Euplatesc\EuplatescPaymentGateway;
+use Vanilo\Euplatesc\EuplatescPaymentGateway;
 use Vanilo\Payment\PaymentGateways;
 
 PaymentGateways::register('gateway-id', EuplatescPaymentGateway::class);

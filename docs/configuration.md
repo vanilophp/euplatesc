@@ -26,7 +26,7 @@ the module configuration:
 return [
     'modules' => [
         //...
-        Konekt\Euplatesc\Providers\ModuleServiceProvider::class => [
+        Vanilo\Euplatesc\Providers\ModuleServiceProvider::class => [
             'gateway' => [
                 'register' => true,
                 'id' => 'my-fancier-than-yours-gateway-id'

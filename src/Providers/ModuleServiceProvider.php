@@ -9,11 +9,10 @@
  *
  */
 
-namespace Konekt\Euplatesc\Providers;
+namespace Vanilo\Euplatesc\Providers;
 
 use Konekt\Concord\BaseModuleServiceProvider;
-use Konekt\Euplatesc\EuplatescPaymentGateway;
-use RuntimeException;
+use Vanilo\Euplatesc\EuplatescPaymentGateway;
 use Vanilo\Payment\PaymentGateways;
 
 class ModuleServiceProvider extends BaseModuleServiceProvider

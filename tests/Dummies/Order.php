@@ -12,7 +12,7 @@ declare(strict_types=1);
  *
  */
 
-namespace Konekt\Euplatesc\Tests\Dummies;
+namespace Vanilo\Euplatesc\Tests\Dummies;
 
 use Illuminate\Database\Eloquent\Model;
 use Vanilo\Contracts\Billpayer;

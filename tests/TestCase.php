@@ -9,12 +9,12 @@
  *
  */
 
-namespace Konekt\Euplatesc\Tests;
+namespace Vanilo\Euplatesc\Tests;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Konekt\Concord\ConcordServiceProvider;
-use Konekt\Euplatesc\Providers\ModuleServiceProvider as EuplatescModule;
-use Konekt\Euplatesc\Tests\Dummies\SomeOrder;
+use Vanilo\Euplatesc\Providers\ModuleServiceProvider as EuplatescModule;
+use Vanilo\Euplatesc\Tests\Dummies\SomeOrder;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Vanilo\Payment\Providers\ModuleServiceProvider as PaymentModule;
 

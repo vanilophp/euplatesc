@@ -9,10 +9,10 @@
  *
  */
 
-namespace Konekt\Euplatesc\Messages;
+namespace Vanilo\Euplatesc\Messages;
 
 use Illuminate\Support\Facades\View;
-use Konekt\Euplatesc\Dto\EuplatescAddress;
+use Vanilo\Euplatesc\Dto\EuplatescAddress;
 use Vanilo\Payment\Contracts\PaymentRequest;
 
 class EuplatescPaymentRequest extends BaseMessage implements PaymentRequest

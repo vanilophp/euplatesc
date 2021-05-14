@@ -12,12 +12,12 @@ declare(strict_types=1);
  *
  */
 
-namespace Konekt\Euplatesc\Tests\Factory;
+namespace Vanilo\Euplatesc\Tests\Factory;
 
 use Illuminate\Http\Request;
-use Konekt\Euplatesc\Factories\ResponseFactory;
-use Konekt\Euplatesc\Messages\EuplatescPaymentResponse;
-use Konekt\Euplatesc\Tests\TestCase;
+use Vanilo\Euplatesc\Factories\ResponseFactory;
+use Vanilo\Euplatesc\Messages\EuplatescPaymentResponse;
+use Vanilo\Euplatesc\Tests\TestCase;
 
 class ResponseFactoryTest extends TestCase
 {

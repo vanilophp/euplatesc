@@ -12,14 +12,14 @@ declare(strict_types=1);
  *
  */
 
-namespace Konekt\Euplatesc\Tests\Factory;
+namespace Vanilo\Euplatesc\Tests\Factory;
 
-use Konekt\Euplatesc\EuplatescPaymentGateway;
-use Konekt\Euplatesc\Factories\RequestFactory;
-use Konekt\Euplatesc\Messages\EuplatescPaymentRequest;
-use Konekt\Euplatesc\Tests\Dummies\Order;
-use Konekt\Euplatesc\Tests\Dummies\SomeOrder;
-use Konekt\Euplatesc\Tests\TestCase;
+use Vanilo\Euplatesc\EuplatescPaymentGateway;
+use Vanilo\Euplatesc\Factories\RequestFactory;
+use Vanilo\Euplatesc\Messages\EuplatescPaymentRequest;
+use Vanilo\Euplatesc\Tests\Dummies\Order;
+use Vanilo\Euplatesc\Tests\Dummies\SomeOrder;
+use Vanilo\Euplatesc\Tests\TestCase;
 use Vanilo\Payment\Factories\PaymentFactory;
 use Vanilo\Payment\Models\PaymentMethod;
 

@@ -9,9 +9,9 @@
  *
  */
 
-namespace Konekt\Euplatesc\Tests\Gateway;
+namespace Vanilo\Euplatesc\Tests\Gateway;
 
-use Konekt\Euplatesc\Tests\TestCase;
+use Vanilo\Euplatesc\Tests\TestCase;
 use Vanilo\Payment\PaymentGateways;
 
 class OmitRegistrationTest extends TestCase
@@ -32,6 +32,6 @@ class OmitRegistrationTest extends TestCase
     {
         parent::resolveApplicationConfiguration($app);
 
-        config(['konekt.euplatesc.gateway.register' => false]);
+        config(['vanilo.euplatesc.gateway.register' => false]);
     }
 }

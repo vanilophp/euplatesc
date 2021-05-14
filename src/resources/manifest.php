@@ -2,5 +2,5 @@
 
 return [
     'name'    => 'Euplatesc Payments for Vanilo',
-    'version' => '1.0.0'
+    'version' => '2.0-dev'
 ];

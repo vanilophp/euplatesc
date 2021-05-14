@@ -9,12 +9,12 @@
  *
  */
 
-namespace Konekt\Euplatesc;
+namespace Vanilo\Euplatesc;
 
 use Illuminate\Http\Request;
-use Konekt\Euplatesc\Concerns\InteractsWithEuplatesc;
-use Konekt\Euplatesc\Factories\RequestFactory;
-use Konekt\Euplatesc\Factories\ResponseFactory;
+use Vanilo\Euplatesc\Concerns\InteractsWithEuplatesc;
+use Vanilo\Euplatesc\Factories\RequestFactory;
+use Vanilo\Euplatesc\Factories\ResponseFactory;
 use Vanilo\Contracts\Address;
 use Vanilo\Payment\Contracts\Payment;
 use Vanilo\Payment\Contracts\PaymentGateway;

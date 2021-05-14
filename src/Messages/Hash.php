@@ -9,7 +9,7 @@
  *
  */
 
-namespace Konekt\Euplatesc\Messages;
+namespace Vanilo\Euplatesc\Messages;
 
 /**
  * Euplatesc Hashing methods, provided by the vendor, re-bundled

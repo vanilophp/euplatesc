@@ -1,5 +1,5 @@
 {
-    "name": "konekt/vanilo-euplatesc",
+    "name": "vanilo/euplatesc",
     "description": "Euplatesc Payment Gateway Support for Vanilo (Laravel)",
     "type": "library",
     "minimum-stability": "dev",
@@ -12,17 +12,17 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/artkonekt/vanilo-euplatesc"
+        "issues": "https://github.com/vanilo/euplatesc"
     },
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4|^8.0",
         "konekt/concord": "^1.5",
-        "vanilo/payment": "^2.1",
-        "vanilo/contracts": "^2.1"
+        "vanilo/payment": "^2.2",
+        "vanilo/contracts": "^2.2"
     },
     "autoload": {
         "psr-4": {
-            "Konekt\\Euplatesc\\": "src"
+            "Vanilo\\Euplatesc\\": "src"
         }
     },
     "require-dev": {
@@ -32,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Konekt\\Euplatesc\\Tests\\": "tests"
+            "Vanilo\\Euplatesc\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -40,7 +40,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "2.0.x-dev"
         }
     }
 }

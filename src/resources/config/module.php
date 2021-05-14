@@ -1,6 +1,6 @@
 <?php
 
-use Konekt\Euplatesc\EuplatescPaymentGateway;
+use Vanilo\Euplatesc\EuplatescPaymentGateway;
 
 return [
     'gateway' => [

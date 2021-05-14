@@ -9,11 +9,11 @@
  *
  */
 
-namespace Konekt\Euplatesc\Factories;
+namespace Vanilo\Euplatesc\Factories;
 
-use Konekt\Euplatesc\Concerns\InteractsWithEuplatesc;
-use Konekt\Euplatesc\Dto\EuplatescAddress;
-use Konekt\Euplatesc\Messages\EuplatescPaymentRequest;
+use Vanilo\Euplatesc\Concerns\InteractsWithEuplatesc;
+use Vanilo\Euplatesc\Dto\EuplatescAddress;
+use Vanilo\Euplatesc\Messages\EuplatescPaymentRequest;
 use Vanilo\Contracts\Address;
 use Vanilo\Contracts\Payable;
 use Vanilo\Payment\Contracts\Payment;

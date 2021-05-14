@@ -12,9 +12,11 @@ declare(strict_types=1);
  *
  */
 
-namespace Konekt\Euplatesc\Messages;
+namespace Vanilo\Euplatesc\Messages;
 
+use Konekt\Enum\Enum;
 use Vanilo\Payment\Contracts\PaymentResponse;
+use Vanilo\Payment\Contracts\PaymentStatus;
 
 class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
 {
@@ -108,16 +110,26 @@ class EuplatescPaymentResponse extends BaseMessage implements PaymentResponse
     public function getFpHashData(): array
     {
         return [
-            'amount'     => addslashes(trim($this->getAmount()->getAmount())),          //original amount
-            'curr'       => addslashes(trim($this->getAmount()->getCurrency()->getCode())), //original currency
-            'invoice_id' => addslashes(trim($this->getInvoiceId())),                    //original invoice id
-            'ep_id'      => addslashes(trim($this->getEpId())),                         //Euplatesc.ro unique id
-            'merch_id'   => addslashes(trim($this->getMerchantId())),                   //your merchant id
-            'action'     => addslashes(trim($this->getAction())),                       // if action ==0 transaction ok
-            'message'    => addslashes(trim($this->getMessage())),                      // transaction response message
-            'approval'   => addslashes(trim($this->getApproval())),                     // if action!=0 empty
-            'timestamp'  => addslashes(trim($this->getTimestamp())),                    // message timestamp
+            'amount'     => addslashes(trim($this->getAmount()->getAmount())),              // original amount
+            'curr'       => addslashes(trim($this->getAmount()->getCurrency()->getCode())), // original currency
+            'invoice_id' => addslashes(trim($this->getInvoiceId())),                        // original invoice id
+            'ep_id'      => addslashes(trim($this->getEpId())),                             // Euplatesc.ro unique id
+            'merch_id'   => addslashes(trim($this->getMerchantId())),                       // your merchant id
+            'action'     => addslashes(trim((string) $this->getAction())),                  // if action ==0 transaction ok
+            'message'    => addslashes(trim($this->getMessage())),                          // transaction response message
+            'approval'   => addslashes(trim($this->getApproval())),                         // if action!=0 empty
+            'timestamp'  => addslashes(trim($this->getTimestamp())),                        // message timestamp
             'nonce'      => addslashes(trim($this->getNonce())),
         ];
+    }
+
+    public function getStatus(): PaymentStatus
+    {
+        // TODO: Implement getStatus() method.
+    }
+
+    public function getNativeStatus(): Enum
+    {
+        // TODO: Implement getNativeStatus() method.
     }
 }

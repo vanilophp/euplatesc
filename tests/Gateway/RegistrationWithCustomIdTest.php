@@ -9,10 +9,10 @@
  *
  */
 
-namespace Konekt\Euplatesc\Tests\Gateway;
+namespace Vanilo\Euplatesc\Tests\Gateway;
 
-use Konekt\Euplatesc\EuplatescPaymentGateway;
-use Konekt\Euplatesc\Tests\TestCase;
+use Vanilo\Euplatesc\EuplatescPaymentGateway;
+use Vanilo\Euplatesc\Tests\TestCase;
 use Vanilo\Payment\Contracts\PaymentGateway;
 use Vanilo\Payment\PaymentGateways;
 
@@ -44,6 +44,6 @@ class RegistrationWithCustomIdTest extends TestCase
     {
         parent::resolveApplicationConfiguration($app);
 
-        config(['konekt.euplatesc.gateway.id' => 'yesipay']);
+        config(['vanilo.euplatesc.gateway.id' => 'yesipay']);
     }
 }

@@ -9,7 +9,7 @@
  *
  */
 
-namespace Konekt\Euplatesc\Concerns;
+namespace Vanilo\Euplatesc\Concerns;
 
 trait InteractsWithEuplatesc
 {

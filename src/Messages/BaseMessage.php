@@ -9,9 +9,9 @@
  *
  */
 
-namespace Konekt\Euplatesc\Messages;
+namespace Vanilo\Euplatesc\Messages;
 
-use Konekt\Euplatesc\Concerns\InteractsWithEuplatesc;
+use Vanilo\Euplatesc\Concerns\InteractsWithEuplatesc;
 
 abstract class BaseMessage
 {
