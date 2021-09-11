@@ -1,7 +1,7 @@
 # Vanilo Euplatesc Module Changelog
 
-## Unreleased
-##### 2021-XX-YY
+## 2.0.0
+##### 2021-09-11
 
 - Renamed package from `konekt/vanilo-euplatesc` to `vanilo/euplatesc`
 - Changed the namespace from `Konekt\Euplatesc` to `Vanilo\Euplatesc`
