@@ -76,5 +76,5 @@ class EuplatescStatus extends Enum
     public const INVALID_RECURRING_LIST = 902;
     public const UNKNOWN_ERROR = 999;
 
-    protected static $unknownValuesFallbackToDefault = true;
+    protected static bool $unknownValuesFallbackToDefault = true;
 }
