@@ -1,5 +1,13 @@
 # Vanilo Euplatesc Module Changelog
 
+## Unreleased
+##### 2023-XX-YY
+
+- Requires Vanilo 4.0+
+- Requires Laravel 10+
+- Requires PHP 8.2+
+- Requires Enum v4+
+
 ## 3.0.0
 ##### 2023-03-05
 

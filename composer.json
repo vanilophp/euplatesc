@@ -15,11 +15,11 @@
         "issues": "https://github.com/vanilo/euplatesc"
     },
     "require": {
-        "php": "^8.0",
-        "konekt/concord": "^1.10.2",
-        "konekt/enum": "^3.1.1|^4.0",
-        "vanilo/payment": "^3.0",
-        "vanilo/contracts": "^3.0"
+        "php": "^8.2",
+        "konekt/concord": "^1.13",
+        "konekt/enum": "^4.0",
+        "vanilo/payment": "^4.0",
+        "vanilo/contracts": "^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -28,7 +28,7 @@
     },
     "require-dev": {
         "ext-sqlite3": "*",
-        "orchestra/testbench": "^7.0",
+        "orchestra/testbench": "^8.0",
         "phpunit/phpunit" : "^9.0"
     },
     "autoload-dev": {
@@ -41,7 +41,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.x-dev"
+            "dev-master": "4.0.x-dev"
         }
     }
 }
