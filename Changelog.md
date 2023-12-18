@@ -8,6 +8,12 @@
 - Requires PHP 8.2+
 - Requires Enum v4+
 
+## 3.1.0
+##### 2023-12-18
+
+- Added Laravel 10 support
+- Added PHP 8.3 support
+
 ## 3.0.0
 ##### 2023-03-05
 
