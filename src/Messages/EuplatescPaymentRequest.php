@@ -54,6 +54,11 @@ class EuplatescPaymentRequest extends BaseMessage implements PaymentRequest
         return true;
     }
 
+    public function getRemoteId(): ?string
+    {
+        return null;
+    }
+
     public function getOrderDescription(): string
     {
         return $this->orderDescription;

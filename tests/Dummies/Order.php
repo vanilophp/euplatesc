@@ -51,4 +51,24 @@ class Order extends Model implements Payable
     {
         return new SomeBillPayer();
     }
+
+    public function getNumber(): string
+    {
+        // TODO: Implement getNumber() method.
+    }
+
+    public function getPayableRemoteId(): ?string
+    {
+        // TODO: Implement getPayableRemoteId() method.
+    }
+
+    public function setPayableRemoteId(string $remoteId): void
+    {
+        // TODO: Implement setPayableRemoteId() method.
+    }
+
+    public static function findByPayableRemoteId(string $remoteId): ?Payable
+    {
+        // TODO: Implement findByPayableRemoteId() method.
+    }
 }

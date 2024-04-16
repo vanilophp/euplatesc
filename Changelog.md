@@ -4,9 +4,12 @@
 ##### 2023-XX-YY
 
 - Requires Vanilo 4.0+
-- Requires Laravel 10+
+- Requires Laravel 10.43+
 - Requires PHP 8.2+
-- Requires Enum v4+
+- Requires Enum v4.2+
+- Added Laravel 11 support
+- Dropped Vanilo 3 support
+- Dropped Laravel 9 support
 
 ## 3.1.0
 ##### 2023-12-18
