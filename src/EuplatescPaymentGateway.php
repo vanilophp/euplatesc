@@ -40,7 +40,7 @@ class EuplatescPaymentGateway implements PaymentGateway
 
     public static function svgIcon(): string
     {
-        return self::$svg ??= file_get_contents(__DIR__ . '/../../resources/euplatesc.svg');
+        return self::$svg ??= file_get_contents(__DIR__ . '/resources/logo.svg');
     }
 
     public function createPaymentRequest(
