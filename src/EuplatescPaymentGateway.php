@@ -27,6 +27,8 @@ use Vanilo\Payment\Contracts\TransactionHandler;
 
 class EuplatescPaymentGateway implements PaymentGateway
 {
+    private static ?string $svg = null;
+
     use InteractsWithEuplatesc;
 
     public const DEFAULT_ID = 'euplatesc';
@@ -34,6 +36,11 @@ class EuplatescPaymentGateway implements PaymentGateway
     public static function getName(): string
     {
         return 'Euplatesc';
+    }
+
+    public static function svgIcon(): string
+    {
+        return self::$svg ??= file_get_contents(__DIR__ . '/../../resources/euplatesc.svg');
     }
 
     public function createPaymentRequest(
