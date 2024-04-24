@@ -23,6 +23,7 @@ use Vanilo\Payment\Contracts\Payment;
 use Vanilo\Payment\Contracts\PaymentGateway;
 use Vanilo\Payment\Contracts\PaymentRequest;
 use Vanilo\Payment\Contracts\PaymentResponse;
+use Vanilo\Payment\Contracts\TransactionHandler;
 
 class EuplatescPaymentGateway implements PaymentGateway
 {
@@ -48,6 +49,11 @@ class EuplatescPaymentGateway implements PaymentGateway
     {
         return (new ResponseFactory($this->merchantId, $this->encryptionKey))
             ->buildFromCallbackRequest($request, $options);
+    }
+
+    public function transactionHandler(): ?TransactionHandler
+    {
+        return null;
     }
 
     public function isOffline(): bool
