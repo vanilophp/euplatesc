@@ -1,7 +1,7 @@
 # Vanilo Euplatesc Module Changelog
 
-## Unreleased
-##### 2023-XX-YY
+## 4.0.0
+##### 2024-04-25
 
 - Requires Vanilo 4.0+
 - Requires Laravel 10.43+
