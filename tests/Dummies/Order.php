@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Vanilo\Euplatesc\Tests\Dummies;
 
 use Illuminate\Database\Eloquent\Model;
+use Traversable;
 use Vanilo\Contracts\Billpayer;
 use Vanilo\Contracts\Payable;
 
@@ -70,5 +71,15 @@ class Order extends Model implements Payable
     public static function findByPayableRemoteId(string $remoteId): ?Payable
     {
         // TODO: Implement findByPayableRemoteId() method.
+    }
+
+    public function hasItems(): bool
+    {
+        return false;
+    }
+
+    public function getItems(): Traversable
+    {
+        return collect();
     }
 }
