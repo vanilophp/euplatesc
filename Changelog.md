@@ -1,5 +1,14 @@
 # Vanilo Euplatesc Module Changelog
 
+## Unreleased
+##### 2025-XX-YY
+
+- Requires Vanilo 5.0+
+- Changed the minimum Laravel version to 10.48+
+- Added Laravel 12 support
+- Added PHP 8.4 support (Actually, 4.0 works with PHP 8.4 as well)
+- Dropped PHP 8.2 support
+
 ## 4.0.0
 ##### 2024-04-25
 
