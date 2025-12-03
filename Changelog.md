@@ -7,6 +7,7 @@
 - Changed the minimum Laravel version to 10.48+
 - Added Laravel 12 support
 - Added PHP 8.4 support (Actually, 4.0 works with PHP 8.4 as well)
+- Added PHP 8.5 support
 - Dropped PHP 8.2 support
 
 ## 4.0.0
