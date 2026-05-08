@@ -1,5 +1,13 @@
 # Vanilo Euplatesc Module Changelog
 
+## Unreleased
+##### 2026-XX-YY
+
+- Requires Vanilo 6
+- Changed the minimum Laravel version to 12.50
+- Added Laravel 13 support
+- Dropped PHP 8.3 support
+
 ## 5.0.0
 ##### 2025-12-03
 
