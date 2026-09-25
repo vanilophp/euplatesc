@@ -4,8 +4,8 @@
 ##### 2026-XX-YY
 
 - Requires Vanilo 6
-- Changed the minimum Laravel version to 12.50
-- Added Laravel 13 support
+- Changed the minimum Laravel version to 12.61.1
+- Added Laravel 13 support (13.12+)
 - Dropped PHP 8.3 support
 
 ## 5.0.0

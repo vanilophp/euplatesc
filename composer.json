@@ -16,6 +16,7 @@
     },
     "require": {
         "php": "^8.4",
+        "laravel/framework": "^12.61.1|^13.12",
         "konekt/concord": "^1.18",
         "konekt/enum": "^4.2",
         "vanilo/payment": "^6.0",
